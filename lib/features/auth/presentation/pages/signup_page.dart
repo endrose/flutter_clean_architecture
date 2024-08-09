@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_clean_architecture/features/auth/presentation/widgets/auth_button.dart';
 import 'package:flutter_clean_architecture/features/auth/presentation/widgets/auth_field.dart';
 
@@ -58,10 +60,12 @@ class _SignupPageState extends State<SignupPage> {
             onTap: () {
               // print("SignUp  buton clicked");
               if (formKey.currentState!.validate()) {
-                // formKey.currentState!.save();
-                // Navigator.pop(context);
-                return;
+                context.read<AuthBloc>().add(AuthSingUp(
+                    name: nameController.text.trim(),
+                    email: emailController.text.trim(),
+                    password: passwordController.text));
               }
+
               // TODO: SAVE USER DATA
             },
           )

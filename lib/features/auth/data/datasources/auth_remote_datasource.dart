@@ -1,4 +1,3 @@
-import 'package:either_dart/either.dart';
 import 'package:flutter_clean_architecture/core/error/exception.dart';
 import 'package:flutter_clean_architecture/features/auth/data/models/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -31,10 +30,9 @@ class AuthRemoteDatasourceImp implements AuthRemoteDataSource {
       });
 
       if (response.user == null) {
-        // TODO: return user not saved
         throw ServerException('User id null');
       }
-      // TODO: return user model
+      print({response: response});
       return UserModel.fromJson({
         'id': response.user!.id,
         'email': response.user!.email,

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/core/error/failure.dart';
 import 'package:flutter_clean_architecture/features/auth/domain/entities/user.dart';
 import 'package:flutter_clean_architecture/features/auth/domain/usecase/user_signup.dart';
 
@@ -21,6 +20,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   FutureOr<void> _onAuthSignUp(
       AuthSingUp event, Emitter<AuthState> emit) async {
 //
+
+    emit(AuthLoading());
     final response = await _userSignUp(UserSignUpParams(
       name: event.name,
       email: event.email,

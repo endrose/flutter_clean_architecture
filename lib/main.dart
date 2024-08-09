@@ -14,7 +14,7 @@ void main() async {
   // SUPABASE
   final supabase = await Supabase.initialize(
     url: AppSecrets.supabaseUrl,
-    anonKey: AppSecrets.SupabaseKey,
+    anonKey: AppSecrets.supabaseKey,
   );
   runApp(MultiBlocProvider(
     providers: [
