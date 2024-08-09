@@ -17,6 +17,9 @@ class AppTheme {
       focusedBorder: _border(AppPallete.gradient2),
       focusedErrorBorder: _border(Colors.red),
     ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppPallete.backgroundColor,
+    ),
   );
 
   static final lightThemeMode = ThemeData.light().copyWith();

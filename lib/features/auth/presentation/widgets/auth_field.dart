@@ -21,11 +21,8 @@ class AuthField extends StatelessWidget {
       ),
       obscureText: isObsecure,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter some text';
-        } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-          return 'Please enter a valid email address';
-        }
+        if (value == null || value.isEmpty) return '$hintText is required!';
+
         print({value: value});
         return null;
       },
